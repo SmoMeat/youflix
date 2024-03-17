@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>YouFlix</title>
+    </head>
+    <body>
+        <h1>La video:</h1>
+        <!-- <video id="videoPlayer" width="650" controls muted="muted" autoplay>
+            <source src="http://localhost:3000/video" type="video/mp4" />
+        </video> -->
+        <ul id="videoPlayers"></ul>
+        <script>
+            fetch("http://localhost:3000/search").then(response => {
+                return response.text()
+            }).then(data => {
+                let videos = JSON.parse(data)
+                console.log(videos)
+                JSON.stringify
+                let list = document.getElementById("videoPlayers")
+                
+                videos.forEach(element => {
+                    let p = document.createElement('p')
+                    let video = document.createElement('video')
+                    p.innerText = element
+                    video.src = "http://localhost:3000/video?name=" + element
+                    video.controls = true
+                    list.appendChild(p)
+                    list.appendChild(video)
+                })
+            })
+        </script>
+            
+
+        <!-- <video controls src="http://localhost:3000/video"></video> -->
+    </body>
+</html>
